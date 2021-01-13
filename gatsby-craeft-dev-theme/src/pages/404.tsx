@@ -1,6 +1,6 @@
 import React from "react";
 
-import MainLayout from "../layouts/main-layout";
+import { MainLayout } from "../components";
 
 const NotFoundPage = () => {
   return <MainLayout>404</MainLayout>;

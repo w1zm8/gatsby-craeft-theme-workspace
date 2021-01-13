@@ -1,0 +1,20 @@
+.logo {
+  font-size: 2rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+.light {
+  composes: logo;
+  color: var(--theme-light-main-text-color);
+}
+
+.dark {
+  composes: logo;
+  color: var(--theme-dark-main-text-color);
+}
+
+@media (max-width: 690px) {
+  .logo {
+    font-size: 1.6rem;
+  }
+}

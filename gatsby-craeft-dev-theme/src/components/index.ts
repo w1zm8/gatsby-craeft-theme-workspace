@@ -10,3 +10,5 @@ export { PostTag } from "./PostTag";
 export { PostTags } from "./PostTags";
 export { PostInfo } from "./PostInfo";
 export { TextContent } from "./TextContent";
+export { default as MainLayout } from "./MainLayout";
+export { default as PostLayout } from "./PostLayout";

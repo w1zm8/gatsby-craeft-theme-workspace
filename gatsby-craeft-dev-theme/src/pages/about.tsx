@@ -2,7 +2,7 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import MainLayout from "../layouts/main-layout";
+import { MainLayout } from "../components";
 import { TextContent } from "../components";
 import { useTheme } from "../core";
 

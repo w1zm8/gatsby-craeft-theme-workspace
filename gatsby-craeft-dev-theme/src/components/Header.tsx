@@ -1,9 +1,10 @@
 import React from "react";
 import { useLocation } from "@reach/router";
-import { Link } from "gatsby";
 
-import { useTheme } from "../core";
 import { Navbar } from "./Navbar";
+import { Logo } from "./Logo";
+import { ThemeSwitcher } from "./ThemeSwitcher";
+import { useTheme } from "../core";
 
 import headerStyles from "../../styles/header.module.css";
 
@@ -34,14 +35,10 @@ export const Header = () => {
     <header className={headerStyles[theme]}>
       <div className="container">
         <div className={headerStyles.inner}>
-          <Link to="/" className="site-logo">
-            craeft.dev
-          </Link>
+          <Logo theme={theme} />
           <div className={headerStyles.row}>
             <Navbar items={navItems} currentPath={pathname} theme={theme} />
-            <button className="theme-switcher" onClick={toggleTheme}>
-              {theme === "dark" ? "☀️" : "🌒"}
-            </button>
+            <ThemeSwitcher theme={theme} onToggle={toggleTheme} />
           </div>
         </div>
       </div>

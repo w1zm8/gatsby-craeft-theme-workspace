@@ -74,7 +74,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
   posts.forEach(({ node }) => {
     createPage({
       path: `/blog/${node.frontmatter.slug}`,
-      component: `${__dirname}/src/layouts/post-layout.tsx`,
+      component: `${__dirname}/src/components/PostLayout.tsx`,
       context: { id: node.id },
     });
   });

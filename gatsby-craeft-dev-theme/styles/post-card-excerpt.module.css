@@ -3,7 +3,7 @@
   margin: 0 0 0.8em;
   text-overflow: ellipsis;
   overflow-wrap: normal;
-  max-height: 120px;
+  /* max-height: 120px; */
 }
 
 .excerpt p {

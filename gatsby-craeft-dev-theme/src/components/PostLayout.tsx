@@ -3,8 +3,10 @@ import React from "react";
 import { FluidObject } from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import MainLayout from "./main-layout";
-import { PostInfo, PostTags, TextContent } from "../components";
+import MainLayout from "./MainLayout";
+import { PostInfo } from "./PostInfo";
+import { PostTags } from "./PostTags";
+import { TextContent } from "./TextContent";
 import { useTheme } from "../core";
 
 interface DataType {

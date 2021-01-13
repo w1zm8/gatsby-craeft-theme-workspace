@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { MDXProvider } from "@mdx-js/react";
 
-import { Header } from "../components";
+import { Header } from "./Header";
 import { useTheme } from "../core";
 
 import "../../styles/main.css";

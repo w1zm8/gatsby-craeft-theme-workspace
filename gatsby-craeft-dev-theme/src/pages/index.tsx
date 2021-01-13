@@ -3,8 +3,7 @@ import { PageProps, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { FluidObject } from "gatsby-image";
 
-import { Greeting, PostsList } from "../components";
-import MainLayout from "../layouts/main-layout";
+import { Greeting, PostsList, MainLayout } from "../components";
 import { Post } from "../types";
 
 interface DataType {

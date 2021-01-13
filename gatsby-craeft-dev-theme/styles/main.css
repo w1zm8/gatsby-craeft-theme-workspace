@@ -12,17 +12,7 @@ body {
   width: 100%;
   max-width: var(--main-container-md-width);
   margin: 0 auto;
-}
-
-.site-logo {
-  font-size: 2rem;
-  font-family: "Roboto Mono", monospace;
-}
-
-.theme-switcher {
-  border: none;
-  outline: none;
-  background: none;
+  padding: 0 30px;
 }
 
 /* ------------------ Light Theme ------------------ */
@@ -32,19 +22,11 @@ body.light-theme {
   color: var(--theme-light-second-text-color);
 }
 
-.light-theme .site-logo {
-  color: var(--theme-light-main-text-color);
-}
-
 /* ------------------ Dark Theme ------------------ */
 
 body.dark-theme {
   background-color: var(--theme-dark-main-bg-color);
   color: var(--theme-dark-second-text-color);
-}
-
-.dark-theme .site-logo {
-  color: var(--theme-dark-main-text-color);
 }
 
 .latest-posts {

@@ -47,3 +47,9 @@ p,
 ul {
   margin: 0 0 1.5em;
 }
+
+.no-style-btn {
+  border: none;
+  outline: none;
+  background: none;
+}
