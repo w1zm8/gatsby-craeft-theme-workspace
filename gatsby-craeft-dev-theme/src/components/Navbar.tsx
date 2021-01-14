@@ -1,7 +1,7 @@
 import React from "react";
 
 import { THEMES } from "../constants";
-import { ThemeValue } from "../types";
+import { NavItem, ThemeValue } from "../types";
 import { NavLink } from "./NavLink";
 
 import styles from "../../styles/navbar.module.css";
@@ -9,13 +9,15 @@ import styles from "../../styles/navbar.module.css";
 interface NavbarProps {
   theme?: ThemeValue;
   currentPath?: string;
-  items: { path: string; name: string }[];
+  items: NavItem[];
+  withLine?: boolean;
 }
 
 export const Navbar = ({
   items,
   theme = THEMES.light,
   currentPath = "",
+  withLine = false,
 }: NavbarProps) => {
   return (
     <nav className={styles[theme]}>
@@ -31,6 +33,7 @@ export const Navbar = ({
           {name}
         </NavLink>
       ))}
+      {withLine && <span className={styles.line}></span>}
     </nav>
   );
 };

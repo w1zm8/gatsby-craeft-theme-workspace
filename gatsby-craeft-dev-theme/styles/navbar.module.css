@@ -1,9 +1,14 @@
 .common {
-  margin-right: 20px;
-  padding: 5px 15px;
-  border-right: 1px solid;
+  padding: 0 15px;
   font-size: 1rem;
   font-family: "Roboto Mono", monospace;
+}
+
+.line {
+  margin-left: 10px;
+  border-right: 1px solid;
+  width: 1px;
+  padding: 2px 0;
 }
 
 .light {
@@ -14,4 +19,12 @@
 .dark {
   composes: common;
   color: var(--theme-dark-second-text-color);
+}
+
+.light .line {
+  border-color: var(--theme-light-second-text-color);
+}
+
+.dark .line {
+  border-color: var(--theme-dark-second-text-color);
 }

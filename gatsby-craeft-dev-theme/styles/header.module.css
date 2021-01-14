@@ -20,15 +20,15 @@
   height: 64px;
 }
 
+.row {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 690px) {
   .inner {
     height: auto;
     flex-direction: column;
     padding: 10px 0 15px 0;
   }
-}
-
-.row {
-  display: flex;
-  align-items: center;
 }

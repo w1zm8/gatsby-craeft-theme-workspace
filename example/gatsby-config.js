@@ -13,16 +13,15 @@ module.exports = {
       { path: "/blog", name: "Blog" },
       { path: "/about", name: "About" },
       { path: "/contact", name: "Contact" },
-      // {
-      //   path: "https://twitter.com/w1zm8",
-      //   name: "Twitter",
-      // },
-      // {
-      //   path: "https://github.com/w1zm8",
-      //   name: "GitHub",
-      // },
     ],
     copyright: "© craeft.dev 2020",
+    footerNav: [
+      { path: "/blog", name: "Blog" },
+      { path: "https://w1zm8.substack.com", name: "Newsletter" },
+      { path: "/rss", name: "RSS" },
+      { path: "https://twitter.com/w1zm8", name: "Twitter" },
+      { path: "https://github.com/w1zm8", name: "GitHub" },
+    ],
   },
   plugins: [
     {

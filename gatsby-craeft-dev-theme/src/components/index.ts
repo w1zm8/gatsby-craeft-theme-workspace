@@ -1,4 +1,5 @@
 export { Header } from "./Header";
+export { Footer } from "./Footer";
 export { Greeting } from "./Greeting";
 export { InfoCard } from "./InfoCard";
 export { Navbar } from "./Navbar";

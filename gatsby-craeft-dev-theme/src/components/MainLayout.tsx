@@ -3,21 +3,43 @@ import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import { Header } from "./Header";
+import { Footer } from "./Footer";
 import { SEO } from "./Seo";
 
 import { useTheme } from "../core";
 
 import "../../styles/main.css";
+import { NavItem } from "../types";
 
 const query = graphql`
-  query MainLayoutSEO {
+  query MainLayout {
     site {
       siteMetadata {
         logoTitle
+        copyright
+        nav {
+          path
+          name
+        }
+        footerNav {
+          path
+          name
+        }
       }
     }
   }
 `;
+
+interface MainLayoutQuery {
+  site: {
+    siteMetadata: {
+      logoTitle: string;
+      copyright: string;
+      nav: NavItem[];
+      footerNav: NavItem[];
+    };
+  };
+}
 
 interface MainLayoutProps {
   children?: React.ReactNode;
@@ -25,18 +47,14 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   const { theme } = useTheme();
-  const { site } = useStaticQuery<{
-    site: {
-      siteMetadata: {
-        logoTitle: string;
-      };
-    };
-  }>(query);
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery<MainLayoutQuery>(query);
 
   return (
     <>
       <SEO theme={theme} />
-      <Header logoTitle={site.siteMetadata.logoTitle} />
+      <Header logoTitle={siteMetadata.logoTitle} navItems={siteMetadata.nav} />
       <main className="container">
         <br />
         <br />
@@ -44,6 +62,11 @@ const MainLayout = ({ children }: MainLayoutProps) => {
           <MDXProvider components={{}}>{children}</MDXProvider>
         </section>
       </main>
+      <Footer
+        copyright={siteMetadata.copyright}
+        navItems={siteMetadata.footerNav}
+        theme={theme}
+      />
     </>
   );
 };

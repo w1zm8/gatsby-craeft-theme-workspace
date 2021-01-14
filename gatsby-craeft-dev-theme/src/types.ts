@@ -24,3 +24,8 @@ export interface SiteQueryData {
     };
   };
 }
+
+export interface NavItem {
+  path: string;
+  name: string;
+}
