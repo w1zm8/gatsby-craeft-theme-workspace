@@ -5,6 +5,10 @@ title: "Something about"
 excerpt: "my excerpt..."
 image: "../../images/astronomical-clocks.jpg"
 hidden: false
+tags:
+  - something
+  - basics
+  - beginner
 ---
 
 # Something about

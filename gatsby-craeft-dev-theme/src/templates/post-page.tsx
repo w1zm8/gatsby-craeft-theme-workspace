@@ -3,11 +3,13 @@ import React from "react";
 import { FixedObject, FluidObject } from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import MainLayout from "./MainLayout";
-import { PostInfo } from "./PostInfo";
-import { PostTags } from "./PostTags";
-import { TextContent } from "./TextContent";
-import { SEO } from "./Seo";
+import {
+  MainLayout,
+  PostInfo,
+  PostTags,
+  TextContent,
+  SEO,
+} from "../components";
 
 import { useTheme } from "../core";
 
@@ -29,7 +31,7 @@ interface DataType {
   };
 }
 
-const PostLayout = ({
+const PostPage = ({
   data: {
     mdx: { frontmatter, body, excerpt },
   },
@@ -85,4 +87,4 @@ export const query = graphql`
   }
 `;
 
-export default PostLayout;
+export default PostPage;

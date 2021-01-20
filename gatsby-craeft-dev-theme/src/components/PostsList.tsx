@@ -1,20 +1,29 @@
 import React from "react";
 
-import { GridViewValue, Post } from "../types";
 import { PostCard } from "./PostCard";
+
+import { GridViewValue, PostEdge } from "../types";
+import { getMappedPosts } from "../utils";
 
 import styles from "../../styles/posts-list.module.css";
 
 interface PostsListProps {
-  posts: Post[];
+  posts: PostEdge[];
   gridView: GridViewValue;
 }
 
-export const PostsList = ({ posts, gridView }: PostsListProps) => {
+export const PostsList = ({ posts: postsEdges, gridView }: PostsListProps) => {
+  const posts = getMappedPosts(postsEdges);
+
   return (
     <div className={styles.list}>
-      {posts.map(({ slug, ...post }) => (
-        <PostCard key={slug} {...post} to={`/blog/${slug}`} view={gridView} />
+      {posts.map((post) => (
+        <PostCard
+          key={post.slug}
+          {...post}
+          to={`/blog/${post.slug}`}
+          view={gridView}
+        />
       ))}
     </div>
   );

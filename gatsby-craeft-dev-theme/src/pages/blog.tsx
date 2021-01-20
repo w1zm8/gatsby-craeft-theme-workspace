@@ -7,6 +7,7 @@ import {
   PostsList,
   PostsSection,
   PostsListHeader,
+  Breadcrumbs,
 } from "../components";
 import { PostEdge } from "../types";
 import { useTheme } from "../core";
@@ -25,11 +26,11 @@ interface DataType {
 const BlogPage = ({ data: { allMdx, mdx } }: PageProps<DataType>) => {
   const { theme } = useTheme();
 
-  const posts = getMappedPosts(allMdx.edges);
   const tags = getTagsFromPosts(allMdx.edges);
 
   return (
     <MainLayout title="Blog">
+      <Breadcrumbs items={[{ to: "/", label: "Home" }, { label: "Blog" }]} />
       <PostsListHeader
         title="Blog"
         theme={theme}
@@ -39,7 +40,7 @@ const BlogPage = ({ data: { allMdx, mdx } }: PageProps<DataType>) => {
       />
       <PageGrid>
         <PostsSection style={{ width: "100%" }}>
-          <PostsList posts={posts} gridView="tile" />
+          <PostsList posts={allMdx.edges} gridView="tile" />
         </PostsSection>
         {/* <SidePanel>
           <InfoCard theme={theme}>

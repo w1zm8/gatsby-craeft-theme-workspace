@@ -2,7 +2,7 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import { MainLayout } from "../components";
+import { Breadcrumbs, MainLayout } from "../components";
 import { TextContent } from "../components";
 import { useTheme } from "../core";
 
@@ -17,6 +17,7 @@ const AboutPage = ({ data }: PageProps<DataType>) => {
 
   return (
     <MainLayout title="About">
+      <Breadcrumbs items={[{ to: "/", label: "Home" }, { label: "About" }]} />
       <TextContent theme={theme}>
         {data.mdx && <MDXRenderer>{data.mdx.body}</MDXRenderer>}
       </TextContent>

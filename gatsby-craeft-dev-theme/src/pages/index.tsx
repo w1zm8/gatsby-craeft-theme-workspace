@@ -18,9 +18,6 @@ import { getMappedPosts, getTagsFromPosts } from "../utils";
 import { MAX_POSTS_COUNT_HOME_PAGE } from "../constants";
 
 interface DataType {
-  mdx: {
-    body: string;
-  };
   allMdx: {
     edges: PostEdge[];
     totalCount: number;
@@ -32,10 +29,8 @@ interface DataType {
   };
 }
 
-const IndexPage = ({ data: { allMdx, mdx } }: PageProps<DataType>) => {
+const IndexPage = ({ data: { allMdx } }: PageProps<DataType>) => {
   const { theme } = useTheme();
-
-  const posts = getMappedPosts(allMdx.edges);
   const tags = getTagsFromPosts(allMdx.edges);
 
   return (
@@ -43,7 +38,7 @@ const IndexPage = ({ data: { allMdx, mdx } }: PageProps<DataType>) => {
       <PostsListHeader title="Latest Posts" theme={theme} />
       <PageGrid>
         <PostsSection>
-          <PostsList posts={posts} gridView="row" />
+          <PostsList posts={allMdx.edges} gridView="row" />
           {allMdx.totalCount > MAX_POSTS_COUNT_HOME_PAGE && (
             <h3 className="text-center monospace">
               <Link to="/blog" className="underline theme-link">
@@ -53,9 +48,6 @@ const IndexPage = ({ data: { allMdx, mdx } }: PageProps<DataType>) => {
           )}
         </PostsSection>
         <SidePanel>
-          <InfoCard theme={theme}>
-            {mdx ? <MDXRenderer>{mdx.body}</MDXRenderer> : null}
-          </InfoCard>
           <TagsBlock theme={theme} tags={tags} />
         </SidePanel>
       </PageGrid>
@@ -65,9 +57,6 @@ const IndexPage = ({ data: { allMdx, mdx } }: PageProps<DataType>) => {
 
 export const query = graphql`
   query HomePage {
-    mdx(frontmatter: { key: { eq: "short-about" } }) {
-      body
-    }
     allMdx(
       limit: 6
       filter: {

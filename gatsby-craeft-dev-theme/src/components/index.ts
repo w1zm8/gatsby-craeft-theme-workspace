@@ -17,6 +17,8 @@ export { PageGrid } from "./PageGrid";
 export { SidePanel } from "./SidePanel";
 export { TagsBlock } from "./TagsBlock";
 export { PostsListHeader } from "./PostsListHeader";
+export { SEO } from "./Seo";
+export { AllTagsList } from "./AllTagsList";
+export { Breadcrumbs } from "./Breadcrumbs";
 
 export { default as MainLayout } from "./MainLayout";
-export { default as PostLayout } from "./PostLayout";

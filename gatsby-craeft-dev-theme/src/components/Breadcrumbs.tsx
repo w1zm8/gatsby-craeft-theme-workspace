@@ -1,0 +1,29 @@
+import { Link } from "gatsby";
+import React from "react";
+
+import styles from "../../styles/breadcrumbs.module.css";
+
+interface BreadcrumbsProps {
+  items: { to?: string; label: string }[];
+}
+
+export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
+  return (
+    <nav className={styles.breadcrumbs}>
+      {items.map(({ to = "/", label }, index) => (
+        <>
+          {index === items.length - 1 ? (
+            <span>{label}</span>
+          ) : (
+            <Link to={to} className="theme-link">
+              {label}
+            </Link>
+          )}
+          {index !== items.length - 1 && (
+            <span className={styles.splitter}>/</span>
+          )}
+        </>
+      ))}
+    </nav>
+  );
+};

@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.list a {
+  font-family: "Roboto Mono";
+  margin: 0.75rem 2.5rem 1.2rem 0;
+}
+
+.light {
+  composes: list;
+  color: var(--theme-light-second-text-color);
+}
+
+.light a {
+  color: var(--theme-light-second-text-color);
+}
+
+.dark {
+  composes: list;
+  color: var(--theme-dark-second-text-color);
+}
+
+.dark a {
+  color: var(--theme-dark-second-text-color);
+}

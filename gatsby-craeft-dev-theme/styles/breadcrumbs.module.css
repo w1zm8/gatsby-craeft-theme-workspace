@@ -1,0 +1,12 @@
+.breadcrumbs {
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs span:not(.splitter) {
+  opacity: 0.6;
+}
+
+.splitter {
+  margin: 0 0.5rem;
+  opacity: 1;
+}

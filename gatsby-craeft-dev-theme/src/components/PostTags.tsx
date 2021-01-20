@@ -2,18 +2,18 @@ import React from "react";
 
 import { PostTag } from "./PostTag";
 
-import { getRandom } from "../utils";
-
 import styles from "../../styles/post-tags.module.css";
 
 interface PostTagsProps {
   tags: string[];
   direction?: "row" | "column";
   maxCount?: number;
+  id?: string;
 }
 
 export const PostTags = ({
   tags,
+  id = "",
   direction = "row",
   maxCount = tags.length,
 }: PostTagsProps) => {
@@ -26,7 +26,7 @@ export const PostTags = ({
   return (
     <div className={styles[direction]}>
       {displayedTags.map((tag) => (
-        <div className={styles.tag} key={getRandom().toString()}>
+        <div className={styles.tag} key={`${id}-${tag}`}>
           <PostTag to={`/tags/${tag}`} color="orange">
             {tag}
           </PostTag>

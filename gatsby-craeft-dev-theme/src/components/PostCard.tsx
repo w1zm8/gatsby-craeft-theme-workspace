@@ -8,18 +8,20 @@ import { useTheme } from "../core";
 import { PostCardTitle } from "./PostCardTitle";
 import PostCardExcerpt from "./PostCardExcerpt";
 import { PostTags } from "./PostTags";
-
-import styles from "../../styles/post-card.module.css";
 import { PostInfo } from "./PostInfo";
+
 import { MAX_TAGS_COUNT } from "../constants";
 
-interface PostCardProps extends Omit<Post, "slug"> {
+import styles from "../../styles/post-card.module.css";
+
+interface PostCardProps extends Post {
   to: string;
   view?: GridViewValue;
 }
 
 export const PostCard = ({
   title,
+  slug,
   image,
   excerpt,
   date,
@@ -40,7 +42,7 @@ export const PostCard = ({
       )}
       <div className={styles.content}>
         <header className={styles.header}>
-          <PostTags tags={tags} maxCount={MAX_TAGS_COUNT.card} />
+          <PostTags tags={tags} maxCount={MAX_TAGS_COUNT.card} id={slug} />
           <PostCardTitle to={to} theme={theme}>
             {title}
           </PostCardTitle>

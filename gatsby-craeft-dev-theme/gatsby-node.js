@@ -1,6 +1,22 @@
 const fs = require("fs");
 const { CONTENT_PATHS, CONTENT_REQUIRED_FILES } = require("./options");
 
+// replace with "src/utils/getTagsFromPosts.ts"
+const getTagsFromPosts = (posts) =>
+  posts
+    .map(
+      ({
+        node: {
+          frontmatter: { tags },
+        },
+      }) => tags
+    )
+    .filter(Boolean)
+    .flat();
+
+const getTagsCount = (tags) =>
+  tags.reduce((acc, tag) => ({ ...acc, [tag]: (acc[tag] || 0) + 1 }), {});
+
 const createRequiredFiles = (path, reporter, requiredFiles = {}) => {
   const requiredFilesNames = Object.keys(requiredFiles);
 
@@ -49,6 +65,11 @@ const onPreBootstrap = ({ reporter }) => {
 
 const createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
+  const templates = {
+    postPage: `${__dirname}/src/templates/post-page.tsx`,
+    tagsPage: `${__dirname}/src/templates/tags-page.tsx`,
+    tagPostsPage: `${__dirname}/src/templates/tag-posts-page.tsx`,
+  };
 
   const result = await graphql(`
     query {
@@ -58,6 +79,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
             id
             frontmatter {
               slug
+              tags
             }
           }
         }
@@ -74,8 +96,31 @@ const createPages = async ({ graphql, actions, reporter }) => {
   posts.forEach(({ node }) => {
     createPage({
       path: `/blog/${node.frontmatter.slug}`,
-      component: `${__dirname}/src/components/PostLayout.tsx`,
+      component: templates.postPage,
       context: { id: node.id },
+    });
+  });
+
+  const allTags = getTagsFromPosts(posts);
+  const tagPostsCount = getTagsCount(allTags);
+  const tags = Array.from(new Set(allTags).values());
+
+  createPage({
+    path: "/tags",
+    component: templates.tagsPage,
+    context: {
+      tags,
+      tagPostsCount,
+    },
+  });
+
+  tags.forEach((tag) => {
+    createPage({
+      path: `/tags/${tag}`,
+      component: templates.tagPostsPage,
+      context: {
+        tag,
+      },
     });
   });
 };
