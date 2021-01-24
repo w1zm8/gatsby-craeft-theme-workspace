@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ThemeValue } from "../types";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 
 import styles from "../../styles/page-title.module.css";
 
@@ -12,7 +12,7 @@ interface PageTitleProps {
 
 export const PageTitle = ({
   children,
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
 }: PageTitleProps) => {
   return <h1 className={styles[theme]}>{children}</h1>;
 };

@@ -23,5 +23,6 @@ export { Breadcrumbs } from "./Breadcrumbs";
 export { Pagination } from "./Pagination";
 export { GoBackTo } from "./GoBackTo";
 export { Table } from "./Table";
+export { Code } from "./Code";
 
 export { default as MainLayout } from "./MainLayout";

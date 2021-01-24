@@ -1,11 +1,8 @@
-import { STORAGE_THEME_KEY, THEMES } from "../constants";
+import { DEFAULT_THEME, STORAGE_THEME_KEY } from "../constants";
 import { ThemeValue } from "../types";
-import { isDarkModeEnabled } from "./isDarkModeEnabled";
 
 export const getInitialThemeValue = () => {
-  let initialTheme: ThemeValue = isDarkModeEnabled()
-    ? THEMES.dark
-    : THEMES.light;
+  let initialTheme: ThemeValue = DEFAULT_THEME;
 
   try {
     const settedTheme = localStorage.getItem(

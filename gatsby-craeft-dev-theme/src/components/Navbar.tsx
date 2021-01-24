@@ -1,6 +1,6 @@
 import React from "react";
 
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 import { NavItem, ThemeValue } from "../types";
 import { NavLink } from "./NavLink";
 
@@ -15,7 +15,7 @@ interface NavbarProps {
 
 export const Navbar = ({
   items,
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
   currentPath = "",
   withLine = false,
 }: NavbarProps) => {

@@ -2,7 +2,7 @@ import React from "react";
 import { GatsbyLinkProps, Link } from "gatsby";
 
 import { ThemeValue } from "../types";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 
 import styles from "../../styles/nav-link.module.css";
 
@@ -16,7 +16,7 @@ export const NavLink = ({
   to,
   children,
   isActive = false,
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
 }: NavLinkProps) => {
   const styleName = isActive ? `${theme}Active` : theme;
 

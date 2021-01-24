@@ -1,9 +1,10 @@
 import React from "react";
 import { GatsbyLinkProps, Link } from "gatsby";
 
-import styles from "../../styles/pagination-link.module.css";
 import { ThemeValue } from "../types";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
+
+import styles from "../../styles/pagination-link.module.css";
 
 interface PaginationLinkProps
   extends Pick<GatsbyLinkProps<{}>, "to" | "children"> {
@@ -17,7 +18,7 @@ export const PaginationLink = ({
   isActive = false,
   isDisabled = false,
   children,
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
 }: PaginationLinkProps) => {
   const type = isDisabled ? "Disabled" : isActive ? "Active" : "Link";
   const activeClassName = `${theme}${type}`;

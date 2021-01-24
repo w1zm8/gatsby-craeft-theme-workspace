@@ -1,5 +1,5 @@
 import React from "react";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 import { ThemeValue } from "../types";
 
 import styles from "../../styles/post-card-excerpt.module.css";
@@ -11,7 +11,7 @@ interface PostCardExcerptProps {
 
 export const PostCardExcerpt = ({
   children,
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
 }: PostCardExcerptProps) => {
   return (
     <div className={styles[theme]}>

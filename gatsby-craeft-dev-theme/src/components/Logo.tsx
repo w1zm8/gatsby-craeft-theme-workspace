@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 
 import { ThemeValue } from "../types";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 
 import styles from "../../styles/logo.module.css";
 
@@ -11,7 +11,7 @@ interface LogoProps {
   theme?: ThemeValue;
 }
 
-export const Logo = ({ title, theme = THEMES.light }: LogoProps) => {
+export const Logo = ({ title, theme = DEFAULT_THEME }: LogoProps) => {
   return (
     <Link to="/" className={styles[theme]}>
       {title}

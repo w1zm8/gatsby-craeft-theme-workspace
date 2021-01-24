@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 import { ThemeValue } from "../types";
 
 import styles from "../../styles/go-back-to.module.css";
@@ -14,7 +14,7 @@ interface GoBackToProps {
 export const GoBackTo = ({
   to,
   children,
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
 }: GoBackToProps) => {
   return (
     <div className={styles.wrapper}>

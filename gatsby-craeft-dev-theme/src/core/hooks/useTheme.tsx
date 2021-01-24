@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 import { STORAGE_THEME_KEY, THEMES } from "../../constants";
 import { ThemeValue } from "../../types";
-import { getInitialThemeValue, isDarkModeEnabled } from "../../utils";
+import { getInitialThemeValue } from "../../utils";
 
 type ThemeContextValue = {
   theme: ThemeValue;
@@ -11,32 +11,13 @@ type ThemeContextValue = {
 };
 
 const ThemeContext = createContext<ThemeContextValue>({
-  theme: THEMES.light,
+  theme: getInitialThemeValue(),
   setTheme: () => {},
   toggleTheme: () => {},
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<ThemeValue>(getInitialThemeValue);
-
-  const changeThemeToPreferable = () => {
-    if (!isDarkModeEnabled()) {
-      return;
-    }
-
-    try {
-      const settedTheme = localStorage.getItem(STORAGE_THEME_KEY);
-
-      if (!settedTheme) {
-        localStorage.setItem(STORAGE_THEME_KEY, THEMES.dark);
-        setTheme(THEMES.dark);
-      }
-    } catch (e) {}
-  };
-
-  useEffect(() => {
-    changeThemeToPreferable();
-  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === THEMES.dark ? THEMES.light : THEMES.dark;

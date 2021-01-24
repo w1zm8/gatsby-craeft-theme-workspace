@@ -1,5 +1,5 @@
 import React from "react";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 import { ThemeValue } from "../types";
 import { PaginationLink } from "./PaginationLink";
 
@@ -16,7 +16,7 @@ export const Pagination = ({
   pagesCount,
   routePath,
   pageRoutePath = "/page",
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
 }: PaginationProps) => {
   const fullPageRoutePath = `${routePath}${pageRoutePath}`;
   const isFirst = currentPage === 1;

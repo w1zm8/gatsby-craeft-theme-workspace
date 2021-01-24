@@ -1,0 +1,27 @@
+.wrapper {
+  margin-bottom: 2rem;
+}
+
+.wrapper pre {
+  padding: 10px 15px;
+  border-radius: 3px;
+  overflow-x: auto;
+  font-family: "Fira Code", monospace;
+  font-size: 16px;
+}
+
+.line {
+  display: table-row;
+}
+
+.line-no {
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.line-content {
+  display: table-cell;
+}

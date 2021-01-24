@@ -4,7 +4,7 @@ import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
 
 import { SiteQueryData, ThemeValue } from "../types";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 
 const query = graphql`
   query SEO {
@@ -34,7 +34,7 @@ export const SEO = ({
   description = null,
   image = null,
   isArticle = false,
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
 }: SEOProps) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery<SiteQueryData>(query);

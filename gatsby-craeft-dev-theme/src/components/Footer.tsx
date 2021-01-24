@@ -1,7 +1,7 @@
 import React from "react";
 
 import { NavItem, ThemeValue } from "../types";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 
 import { Navbar } from "./Navbar";
 import { Container } from "./Container";
@@ -15,7 +15,7 @@ interface FooterProps {
 }
 
 export const Footer = ({
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
   copyright,
   navItems,
 }: FooterProps) => {

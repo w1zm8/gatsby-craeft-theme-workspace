@@ -2,7 +2,7 @@ import React from "react";
 import Img, { FluidObject } from "gatsby-image";
 
 import { ThemeValue } from "../types";
-import { THEMES } from "../constants";
+import { DEFAULT_THEME } from "../constants";
 
 import styles from "../../styles/text-content.module.css";
 
@@ -15,7 +15,7 @@ interface TextContentProps {
 export const TextContent = ({
   children,
   image,
-  theme = THEMES.light,
+  theme = DEFAULT_THEME,
 }: TextContentProps) => {
   return (
     <div className={styles[theme]}>
