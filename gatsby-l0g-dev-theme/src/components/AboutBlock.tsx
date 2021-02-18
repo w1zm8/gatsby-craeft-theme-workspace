@@ -9,6 +9,7 @@ import { InfoCard } from "./InfoCard";
 import { Subscribing } from "./Subscribing";
 
 import { StyleModules } from "../style-modules";
+import { FullWidthWrapper } from "./FullWidthWrapper";
 
 const styles = StyleModules.aboutBlock;
 
@@ -19,16 +20,15 @@ interface DataType {
 }
 
 interface AboutBlockProps {
-  hasColorishBg?: boolean;
+  isColorishBg?: boolean;
 }
 
-export const AboutBlock: FC<AboutBlockProps> = ({ hasColorishBg = false }) => {
+export const AboutBlock: FC<AboutBlockProps> = ({ isColorishBg = false }) => {
   const { mdx } = useStaticQuery<DataType>(query);
   const { theme } = useTheme();
-  const styleName = hasColorishBg ? theme : "block";
 
   return (
-    <div className={styles[styleName]}>
+    <FullWidthWrapper isColorish={isColorishBg}>
       <Container>
         <div className={styles.inner}>
           <InfoCard style={{ width: "70%", marginRight: "10px" }} theme={theme}>
@@ -41,7 +41,7 @@ export const AboutBlock: FC<AboutBlockProps> = ({ hasColorishBg = false }) => {
           />
         </div>
       </Container>
-    </div>
+    </FullWidthWrapper>
   );
 };
 

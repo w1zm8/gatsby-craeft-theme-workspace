@@ -70,6 +70,8 @@ const POST_TYPES = {
   link: "link",
 };
 
+const RELATED_POSTS_COUNT = 1;
+
 module.exports = {
   CONTENT_PATHS,
   CONTENT_NAMES,
@@ -79,4 +81,5 @@ module.exports = {
   PAGES_ROUTES,
   POSTS_PER_PAGE,
   POST_TYPES,
+  RELATED_POSTS_COUNT,
 };

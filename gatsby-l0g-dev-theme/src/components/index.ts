@@ -29,5 +29,7 @@ export { Subscribing } from "./Subscribing";
 export { SocialsBlock } from "./SocialsBlock";
 export { Icons } from "./Icons";
 export { AboutBlock } from "./AboutBlock";
+export { RelatedPosts } from "./RelatedPosts";
+export { Comments } from "./Comments";
 
 export { default as MainLayout } from "./MainLayout";

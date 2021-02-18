@@ -1,5 +1,5 @@
-import { graphql, PageProps } from "gatsby";
 import React from "react";
+import { graphql, PageProps } from "gatsby";
 import { FixedObject, FluidObject } from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
@@ -14,9 +14,11 @@ import {
   Subscribing,
   AboutBlock,
   Container,
+  Comments,
+  RelatedPosts,
 } from "../components";
 
-import { useTheme } from "../core";
+import { useTheme, useUtterancesComments } from "../core";
 import { PostEdge, PostType } from "../types";
 import { HOME_PAGES_TYPE_ROUTE, RESOURCES_TYPE_ROUTE } from "../constants";
 
@@ -57,8 +59,6 @@ interface Post {
 interface PageContextType {
   id: string;
   relatedPostsIds: string[];
-  nextPost: Post;
-  prevPost: Post;
 }
 
 const PostPage = ({
@@ -66,7 +66,6 @@ const PostPage = ({
     mdx: { frontmatter, body, excerpt },
     allMdx,
   },
-  pageContext: { nextPost, prevPost },
 }: PageProps<DataType, PageContextType>) => {
   const { theme } = useTheme();
 
@@ -108,58 +107,13 @@ const PostPage = ({
             </header>
             {body && <MDXRenderer>{body}</MDXRenderer>}
           </TextContent>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            {nextPost ? (
-              <GoBackTo
-                to={
-                  nextPost.node.frontmatter.type
-                    ? `${
-                        RESOURCES_TYPE_ROUTE[nextPost.node.frontmatter.type]
-                      }/${nextPost.node.frontmatter.slug}`
-                    : "/"
-                }
-                theme={theme}
-              >
-                {`Next: ${nextPost.node.frontmatter.title}`}
-              </GoBackTo>
-            ) : null}
-            {prevPost ? (
-              <GoBackTo
-                to={
-                  prevPost.node.frontmatter.type
-                    ? `${
-                        RESOURCES_TYPE_ROUTE[prevPost.node.frontmatter.type]
-                      }/${prevPost.node.frontmatter.slug}`
-                    : "/"
-                }
-                theme={theme}
-                direction="right"
-              >
-                {`Previous: ${prevPost.node.frontmatter.title}`}
-              </GoBackTo>
-            ) : null}
-          </div>
-          <div>
-            {/* <h3 className="theme-link monospace">See also</h3>
-          <div
-            style={{
-              width: "80%",
-            }}
-          >
-            <PostsList posts={allMdx.edges.slice(0, 2)} gridView="row" />
-          </div> */}
-          </div>
         </article>
       </Container>
-      <AboutBlock hasColorishBg />
+      <AboutBlock isColorishBg />
       <Container>
-        <h3 className="monospace text-center">Comments</h3>
+        <Comments />
       </Container>
+      <RelatedPosts posts={allMdx.edges} />
     </MainLayout>
   );
 };

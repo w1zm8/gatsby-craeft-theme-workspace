@@ -6,6 +6,7 @@ const {
   PAGES_ROUTES,
   POSTS_PER_PAGE,
   POST_TYPES,
+  RELATED_POSTS_COUNT,
 } = require("./options");
 
 const getRelatedPostsIds = (currentPost, posts) => {
@@ -37,7 +38,7 @@ const getRelatedPostsIds = (currentPost, posts) => {
       return bTagsCount - aTagsCount;
     })
     .map(({ node }) => node.id)
-    .slice(0, 3);
+    .slice(0, RELATED_POSTS_COUNT);
 
   return relatedPosts;
 };
@@ -126,8 +127,8 @@ const createPostPage = (
   templateSrc
 ) => {
   const relatedPostsIds = getRelatedPostsIds(currentPost, relatedPosts);
-  const prevPost = index === 0 ? null : posts[index - 1];
-  const nextPost = index === posts.length - 1 ? null : posts[index + 1];
+  // const prevPost = index === 0 ? null : posts[index - 1];
+  // const nextPost = index === posts.length - 1 ? null : posts[index + 1];
 
   createPage({
     path: `${path}/${currentPost.node.frontmatter.slug}`,
@@ -135,8 +136,8 @@ const createPostPage = (
     context: {
       id: currentPost.node.id,
       relatedPostsIds,
-      nextPost,
-      prevPost,
+      // nextPost,
+      // prevPost,
     },
   });
 };
@@ -205,7 +206,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
       currentPost,
       index,
       blogPosts,
-      blogPosts,
+      allPosts,
       PAGES_ROUTES.blog.post,
       TEMPLATES.postPage
     );

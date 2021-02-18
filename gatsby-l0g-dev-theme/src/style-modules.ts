@@ -4,6 +4,7 @@ import aboutBlock from "../styles/about-block.module.css";
 import breadcrumbs from "../styles/breadcrumbs.module.css";
 import code from "../styles/code.module.css";
 import container from "../styles/container.module.css";
+import fullWidthWrapper from "../styles/full-width-container.module.css";
 import footer from "../styles/footer.module.css";
 import goBackTo from "../styles/go-back-to.module.css";
 import header from "../styles/header.module.css";
@@ -38,6 +39,7 @@ export const StyleModules = {
   breadcrumbs,
   code,
   container,
+  fullWidthWrapper,
   footer,
   goBackTo,
   header,

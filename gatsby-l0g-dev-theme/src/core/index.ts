@@ -1,1 +1,1 @@
-export { ThemeProvider, useTheme, useMailchimpSubscription } from "./hooks";
+export * from "./hooks";
