@@ -29,6 +29,8 @@ const CONTENT_REQUIRED_FILES = {
 };
 
 const TEMPLATES = {
+  homePage: `${__dirname}/src/templates/index-page.tsx`,
+  blogPage: `${__dirname}/src/templates/blog-page.tsx`,
   postPage: `${__dirname}/src/templates/post-page.tsx`,
   tagsPage: `${__dirname}/src/templates/tags-page.tsx`,
   tagPostsPage: `${__dirname}/src/templates/tag-posts-page.tsx`,

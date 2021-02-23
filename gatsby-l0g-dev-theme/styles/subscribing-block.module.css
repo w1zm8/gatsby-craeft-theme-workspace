@@ -66,7 +66,47 @@
 }
 
 .result {
-  font-size: 1.6rem !important;
+  font-size: 1.2rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.result button {
+  display: flex;
+  align-items: center;
+}
+
+.result button span {
+  margin-right: 8px;
+}
+
+.result-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.result-error span {
+  margin-left: 10px;
+}
+
+.result-success {
+}
+
+.result-success img {
+  margin-right: 10px;
+}
+
+@media (max-width: 690px) {
+  .result-error {
+    flex-wrap: initial;
+    align-items: flex-start;
+  }
+
+  .result-error img {
+    margin-top: 5px;
+  }
 }
 
 @media (max-width: 570px) {

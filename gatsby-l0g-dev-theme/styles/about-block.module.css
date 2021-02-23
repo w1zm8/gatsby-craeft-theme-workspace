@@ -11,12 +11,12 @@
 }
 
 .inner > div:first-child {
-  width: calc(70% - 10px);
+  width: calc(68% - 10px);
   margin-right: 10px;
 }
 
 .inner > div:last-child {
-  width: calc(30% - 10px);
+  width: calc(32% - 10px);
   margin-left: 10px;
 }
 

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { useMailchimpSubscription, useTheme } from "../core";
+import { useTheme, useConvertkitEmailSubscription } from "../core";
 import { icons } from "../icons";
 
 import { StyleModules } from "../style-modules";
@@ -8,14 +8,23 @@ import { Icon } from "./Icon";
 
 const styles = StyleModules.subscribingBlock;
 
-export const SubscribingBlock: FC = () => {
+interface SubscribingBlockProps {
+  convertkitEndpoint: string;
+}
+
+export const SubscribingBlock: FC<SubscribingBlockProps> = ({
+  convertkitEndpoint,
+}) => {
   const { theme } = useTheme();
   const {
-    email,
-    result,
-    handleChangeEmail,
     handleSubmit,
-  } = useMailchimpSubscription();
+    handleChangeEmail,
+    handleTryAgain,
+    email,
+    isInitialStatus,
+    isErrorStatus,
+    isSuccessStatus,
+  } = useConvertkitEmailSubscription({ endpoint: convertkitEndpoint });
 
   return (
     <div className={styles[theme]}>
@@ -41,23 +50,42 @@ export const SubscribingBlock: FC = () => {
         </strong>
         .
       </p>
-      {result ? (
-        <p className={styles.result}>
-          {result.result === "success" ? <span>👍</span> : <span>🛑</span>}
-          {result.msg && <span> {result.msg}</span>}
-        </p>
-      ) : (
+      {isInitialStatus ? (
         <form className={styles.form} onSubmit={handleSubmit}>
           <input
             className={styles.emailField}
             type="email"
-            name="email"
+            name="email_address"
             placeholder="Email address"
             onChange={handleChangeEmail}
             value={email}
           />
           <button className={styles.subscribeBtn}>Subscribe</button>
         </form>
+      ) : (
+        <div className={styles.result}>
+          {isSuccessStatus && (
+            <div className={styles.resultSuccess}>
+              <Icon src={icons.emojiSparkles} widthSize="20px" />
+              <span>Please go confirm your subscription!</span>
+            </div>
+          )}
+          {isErrorStatus && (
+            <>
+              <div className={styles.resultError}>
+                <Icon src={icons.emojiPoliceCarLight} widthSize="20px" />
+                <span>Oops, Something went wrong! try again.</span>
+              </div>
+              <button className={styles.subscribeBtn} onClick={handleTryAgain}>
+                <span>Try again </span>
+                <Icon
+                  src={icons.emojiCounterclockwiseArrows}
+                  widthSize="20px"
+                />
+              </button>
+            </>
+          )}
+        </div>
       )}
     </div>
   );

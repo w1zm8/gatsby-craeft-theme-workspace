@@ -57,6 +57,7 @@ interface PageContextType {
   id: string;
   relatedPostsIds: string[];
   utterancesConfig: UtterancesConfig;
+  convertkitEndpoint: string;
 }
 
 const PostPage = ({
@@ -64,7 +65,7 @@ const PostPage = ({
     mdx: { frontmatter, body, excerpt },
     allMdx,
   },
-  pageContext: { utterancesConfig },
+  pageContext: { utterancesConfig, convertkitEndpoint },
 }: PageProps<DataType, PageContextType>) => {
   const { theme } = useTheme();
   const { type, image, title, date, tags, keywords } = frontmatter;
@@ -103,12 +104,16 @@ const PostPage = ({
               <PostTags tags={tags || []} />
               <hr />
             </header>
-            {body && <MDXRenderer>{body}</MDXRenderer>}
+            {body && (
+              <MDXRenderer convertkitEndpoint={convertkitEndpoint}>
+                {body}
+              </MDXRenderer>
+            )}
             <PostShareButtons postTitle={title} postUrl={postUrl} />
           </TextContent>
         </article>
       </Container>
-      <AboutBlock isColorishBg />
+      <AboutBlock isColorishBg convertkitEndpoint={convertkitEndpoint} />
       <Container>
         <Comments utterancesConfig={utterancesConfig} />
       </Container>

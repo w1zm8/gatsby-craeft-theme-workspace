@@ -17,10 +17,11 @@ interface PageContextType {
   tagPostsCount: {
     [key: string]: number;
   };
+  convertkitEndpoint: string;
 }
 
 export const TagsPage = ({
-  pageContext: { tagPostsCount },
+  pageContext: { tagPostsCount, convertkitEndpoint },
 }: PageProps<{}, PageContextType>) => {
   const { theme } = useTheme();
 
@@ -34,7 +35,7 @@ export const TagsPage = ({
           <div style={{ width: "100%" }}>
             <AllTagsList tags={tagPostsCount} theme={theme} />
           </div>
-          <SidePanel />
+          <SidePanel convertkitEndpoint={convertkitEndpoint} />
         </PageGrid>
       </Container>
     </MainLayout>

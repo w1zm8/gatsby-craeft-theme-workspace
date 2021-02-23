@@ -29,11 +29,12 @@ interface PageContextValue {
   skip: number;
   currentPage: number;
   pagesCount: number;
+  convertkitEndpoint: string;
 }
 
 const TagPostsPage = ({
   data: { allMdx },
-  pageContext: { tag, currentPage, pagesCount },
+  pageContext: { tag, currentPage, pagesCount, convertkitEndpoint },
 }: PageProps<DataType, PageContextValue>) => {
   const { theme } = useTheme();
 
@@ -61,7 +62,7 @@ const TagPostsPage = ({
               />
             )}
           </PostsSection>
-          <SidePanel />
+          <SidePanel convertkitEndpoint={convertkitEndpoint} />
         </PageGrid>
       </Container>
     </MainLayout>

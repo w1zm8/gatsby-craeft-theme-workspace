@@ -120,6 +120,7 @@ const createPaginationPage = (
       skip: index * POSTS_PER_PAGE,
       currentPage,
       pagesCount,
+      convertkitEndpoint: process.env.CONVERTKIT_ENDPOINT,
     },
   });
 };
@@ -145,6 +146,7 @@ const createPostPage = (
       id: currentPost.node.id,
       relatedPostsIds,
       utterancesConfig: UTTERANCES_CONFIG,
+      convertkitEndpoint: process.env.CONVERTKIT_ENDPOINT,
       // nextPost,
       // prevPost,
     },
@@ -167,6 +169,22 @@ const onPreBootstrap = ({ reporter }) => {
 
 const createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
+
+  createPage({
+    path: "/",
+    component: TEMPLATES.homePage,
+    context: {
+      convertkitEndpoint: process.env.CONVERTKIT_ENDPOINT,
+    },
+  });
+
+  createPage({
+    path: "/blog",
+    component: TEMPLATES.blogPage,
+    context: {
+      convertkitEndpoint: process.env.CONVERTKIT_ENDPOINT,
+    },
+  });
 
   const postsResult = await graphql(`
     query {
@@ -247,6 +265,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
     context: {
       tags,
       tagPostsCount,
+      convertkitEndpoint: process.env.CONVERTKIT_ENDPOINT,
     },
   });
 
@@ -265,6 +284,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
         skip: index * POSTS_PER_PAGE,
         currentPage,
         pagesCount: tagPagesCount,
+        convertkitEndpoint: process.env.CONVERTKIT_ENDPOINT,
       };
 
       if (isFirstPage) {

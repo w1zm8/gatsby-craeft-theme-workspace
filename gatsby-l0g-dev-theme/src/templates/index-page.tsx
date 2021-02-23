@@ -1,5 +1,5 @@
 import React from "react";
-import { PageProps, graphql, Link } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 
 import {
   PageGrid,
@@ -14,11 +14,7 @@ import {
 } from "../components";
 import { PostEdge } from "../types";
 import { useTheme } from "../core";
-import {
-  MAX_POSTS_COUNT_HOME_PAGE,
-  PAGES_ROUTES,
-  POSTS_PER_PAGE,
-} from "../constants";
+import { PAGES_ROUTES, POSTS_PER_PAGE } from "../constants";
 
 interface DataType {
   allMdx: {
@@ -32,7 +28,14 @@ interface DataType {
   };
 }
 
-const IndexPage = ({ data: { allMdx } }: PageProps<DataType>) => {
+interface PageContextType {
+  convertkitEndpoint: string;
+}
+
+const IndexPage = ({
+  data: { allMdx },
+  pageContext: { convertkitEndpoint },
+}: PageProps<DataType, PageContextType>) => {
   const { theme } = useTheme();
   const pagesCount = Math.ceil(allMdx.totalCount / POSTS_PER_PAGE);
 
@@ -53,7 +56,7 @@ const IndexPage = ({ data: { allMdx } }: PageProps<DataType>) => {
               />
             )}
           </PostsSection>
-          <SidePanel>
+          <SidePanel convertkitEndpoint={convertkitEndpoint}>
             <TagsBlock theme={theme} />
           </SidePanel>
         </PageGrid>

@@ -64,13 +64,6 @@ module.exports = {
     },
     "gatsby-plugin-ts-config",
     "gatsby-l0g-dev-theme",
-    {
-      resolve: "gatsby-plugin-mailchimp",
-      options: {
-        endpoint: process.env.MAILCHIMP_ENDPOINT,
-        timeout: 3500,
-      },
-    },
     "gatsby-plugin-robots-txt",
   ],
 };

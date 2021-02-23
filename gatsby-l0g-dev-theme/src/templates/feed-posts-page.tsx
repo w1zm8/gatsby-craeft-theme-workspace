@@ -28,11 +28,12 @@ interface PageContextType {
   skip: number;
   currentPage: number;
   pagesCount: number;
+  convertkitEndpoint: string;
 }
 
 export const FeedPostsPage = ({
   data: { allMdx },
-  pageContext: { currentPage, pagesCount },
+  pageContext: { currentPage, pagesCount, convertkitEndpoint },
 }: PageProps<DataType, PageContextType>) => {
   const { theme } = useTheme();
 
@@ -58,7 +59,7 @@ export const FeedPostsPage = ({
               pagesCount={pagesCount}
             />
           </PostsSection>
-          <SidePanel>
+          <SidePanel convertkitEndpoint={convertkitEndpoint}>
             <TagsBlock theme={theme} />
           </SidePanel>
         </PageGrid>

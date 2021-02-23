@@ -31,9 +31,13 @@ interface DataType {
 
 interface AboutBlockProps {
   isColorishBg?: boolean;
+  convertkitEndpoint: string;
 }
 
-export const AboutBlock: FC<AboutBlockProps> = ({ isColorishBg = false }) => {
+export const AboutBlock: FC<AboutBlockProps> = ({
+  isColorishBg = false,
+  convertkitEndpoint,
+}) => {
   const { mdx, site } = useStaticQuery<DataType>(query);
   const { theme } = useTheme();
 
@@ -61,7 +65,7 @@ export const AboutBlock: FC<AboutBlockProps> = ({ isColorishBg = false }) => {
               )}
             </div>
           </InfoCard>
-          <Subscribing theme={theme} />
+          <Subscribing theme={theme} convertkitEndpoint={convertkitEndpoint} />
         </div>
       </Container>
     </FullWidthWrapper>

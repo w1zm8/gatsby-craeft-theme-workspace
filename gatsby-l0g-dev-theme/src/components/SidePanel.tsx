@@ -12,15 +12,16 @@ const styles = StyleModules.sidePanel;
 
 interface SidePanelProps {
   children?: React.ReactNode;
+  convertkitEndpoint: string;
 }
 
-export const SidePanel = ({ children }: SidePanelProps) => {
+export const SidePanel = ({ children, convertkitEndpoint }: SidePanelProps) => {
   const { theme } = useTheme();
 
   return (
     <aside className={styles.panel}>
       <Blurb theme={theme} />
-      <Subscribing theme={theme} />
+      <Subscribing theme={theme} convertkitEndpoint={convertkitEndpoint} />
       <SocialsBlock theme={theme} />
       {children}
     </aside>

@@ -55,11 +55,6 @@ export interface NavItem {
   name: string;
 }
 
-export interface MailchimpResponse {
-  msg: string;
-  result: string;
-}
-
 export interface UtterancesConfig {
   repo: string;
   issueTerm: string;

@@ -52,3 +52,18 @@
   color: #fff;
   border: 1px solid #465c69;
 }
+
+.result-success {
+  font-size: 1.2rem;
+}
+
+.result-success img {
+  margin-right: 8px;
+}
+
+.result-error {
+}
+
+.result-error img {
+  margin-right: 8px;
+}

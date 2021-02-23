@@ -10,6 +10,7 @@ import {
   SEO,
   Pagination,
   Container,
+  AboutBlock,
 } from "../components";
 import { useTheme } from "../core";
 import { PostEdge } from "../types";
@@ -27,11 +28,12 @@ interface PageContextType {
   skip: number;
   currentPage: number;
   pagesCount: number;
+  convertkitEndpoint: string;
 }
 
 export const BlogPostsPage = ({
   data: { allMdx },
-  pageContext: { currentPage, pagesCount },
+  pageContext: { currentPage, pagesCount, convertkitEndpoint },
 }: PageProps<DataType, PageContextType>) => {
   const { theme } = useTheme();
 
@@ -59,6 +61,7 @@ export const BlogPostsPage = ({
           pagesCount={pagesCount}
         />
       </Container>
+      <AboutBlock convertkitEndpoint={convertkitEndpoint} />
     </MainLayout>
   );
 };

@@ -26,7 +26,14 @@ interface DataType {
   };
 }
 
-const BlogPage = ({ data: { allMdx } }: PageProps<DataType>) => {
+interface PageContextType {
+  convertkitEndpoint: string;
+}
+
+const BlogPage = ({
+  data: { allMdx },
+  pageContext: { convertkitEndpoint },
+}: PageProps<DataType, PageContextType>) => {
   const { theme } = useTheme();
   const pagesCount = Math.ceil(allMdx.totalCount / POSTS_PER_PAGE);
 
@@ -53,7 +60,7 @@ const BlogPage = ({ data: { allMdx } }: PageProps<DataType>) => {
             />
           )}
         </Container>
-        <AboutBlock />
+        <AboutBlock convertkitEndpoint={convertkitEndpoint} />
       </MainLayout>
     </>
   );

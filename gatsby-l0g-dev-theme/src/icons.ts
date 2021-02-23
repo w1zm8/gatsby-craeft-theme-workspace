@@ -12,6 +12,9 @@ import emojiLabel from "../static/icons/emoji-label.png";
 import emojiSpeechBalloon from "../static/icons/emoji-speech-balloon.png";
 import emojiSun from "../static/icons/emoji-sun.png";
 import emojiWaxingCrescentMoon from "../static/icons/emoji-waxing-crescent-moon.png";
+import emojiCounterclockwiseArrows from "../static/icons/emoji-counterclockwise-arrows.png";
+import emojiPoliceCarLight from "../static/icons/emoji-police-car-light.png";
+import emojiSparkles from "../static/icons/emoji-sparkles.png";
 
 export const icons = {
   twitter,
@@ -28,4 +31,7 @@ export const icons = {
   emojiSpeechBalloon,
   emojiSun,
   emojiWaxingCrescentMoon,
+  emojiCounterclockwiseArrows,
+  emojiPoliceCarLight,
+  emojiSparkles,
 };
