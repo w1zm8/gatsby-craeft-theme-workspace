@@ -9,6 +9,7 @@ module.exports = {
     titleTemplate: "%s | L0G.DEV 🦉",
     description:
       "Elit dolore enim exercitation aliquip commodo ex sit do aliquip incididunt adipisicing velit amet.",
+    keywords: ["programming", "software development", "grokking"],
     siteUrl: "https://l0g-theme.netlify.app",
     image: "",
     twitterUsername: "w1zm8",

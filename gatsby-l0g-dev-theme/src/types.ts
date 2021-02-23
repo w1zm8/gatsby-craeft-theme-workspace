@@ -42,6 +42,7 @@ export interface SiteQueryData {
       titleTemplate: string;
       defaultDescription: string;
       siteUrl: string;
+      keywords: string[];
       defaultImage: string;
       twitterUsername: string;
       logoTitle: string;

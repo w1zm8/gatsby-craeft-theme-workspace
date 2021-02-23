@@ -14,10 +14,6 @@ export const useUtterancesComments = ({
 
   const setAttributes = (scriptTag: HTMLScriptElement) => {
     const { theme, issueTerm, ...attrubutes } = options;
-    console.log("--------------issueTerm--------------", issueTerm);
-    if (!issueTerm) {
-      return;
-    }
     const attrubutesNames = Object.keys(
       attrubutes
     ) as (keyof typeof attrubutes)[];

@@ -37,9 +37,14 @@ interface DataType {
       image: {
         childImageSharp: {
           fluid: FluidObject;
-          fixed: FixedObject;
+          resize: {
+            src: string;
+            height: string;
+            width: string;
+          };
         };
       };
+      keywords?: string[];
     };
     body: string;
   };
@@ -62,7 +67,7 @@ const PostPage = ({
   pageContext: { utterancesConfig },
 }: PageProps<DataType, PageContextType>) => {
   const { theme } = useTheme();
-  const { type, image, title, date, tags } = frontmatter;
+  const { type, image, title, date, tags, keywords } = frontmatter;
   const goBackToUrl = type ? HOME_PAGES_TYPE_ROUTE[type] : "/";
   const goBackTitle = type ? HOME_PAGES_TYPE_TITLES[type] : "";
   const postUrl = type
@@ -75,9 +80,10 @@ const PostPage = ({
       <Container>
         <SEO
           theme={theme}
-          image={image?.childImageSharp?.fixed?.src}
+          image={image?.childImageSharp?.resize}
           title={title}
           description={excerpt}
+          keywords={keywords}
         />
         <article
           className="article"
@@ -114,7 +120,7 @@ const PostPage = ({
 export const query = graphql`
   query PostPage($id: String!, $relatedPostsIds: [String]!) {
     mdx(id: { eq: $id }) {
-      excerpt
+      excerpt(pruneLength: 160)
       frontmatter {
         slug
         type
@@ -126,11 +132,14 @@ export const query = graphql`
             fluid(maxWidth: 1200) {
               ...GatsbyImageSharpFluid
             }
-            fixed {
+            resize(width: 1200) {
               src
+              height
+              width
             }
           }
         }
+        keywords
       }
       body
     }

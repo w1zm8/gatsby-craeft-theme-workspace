@@ -35,9 +35,6 @@ export const BlogPostsPage = ({
 }: PageProps<DataType, PageContextType>) => {
   const { theme } = useTheme();
 
-  console.log(currentPage);
-  console.log(pagesCount);
-
   return (
     <MainLayout title="Blog">
       <br />
