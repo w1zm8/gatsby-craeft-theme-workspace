@@ -60,15 +60,6 @@ module.exports = {
     },
     "gatsby-plugin-sitemap",
     "gatsby-plugin-catch-links",
-    {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        // Setting a color is optional.
-        color: `tomato`,
-        // Disable the loading spinner.
-        showSpinner: true,
-      },
-    },
     // {
     //   resolve: `gatsby-plugin-feed`,
     //   options: {
