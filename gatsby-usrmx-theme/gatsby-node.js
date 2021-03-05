@@ -345,6 +345,9 @@ const createPages = async ({ graphql, actions, reporter }) => {
           node {
             childMdx {
               slug
+              frontmatter {
+                title
+              }
             }
           }
         }
@@ -362,6 +365,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
       component: TEMPLATES.notePage,
       context: {
         slug: node.childMdx.slug,
+        title: node.childMdx.frontmatter.title,
       },
     });
   });

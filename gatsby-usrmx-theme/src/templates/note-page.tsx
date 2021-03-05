@@ -18,9 +18,17 @@ interface DataType {
   };
 }
 
-const NotePage: FC<PageProps<DataType>> = ({ data }) => {
+interface PageContextType {
+  title: string | null;
+}
+
+const NotePage: FC<PageProps<DataType, PageContextType>> = ({
+  data,
+  pageContext,
+}) => {
   const { theme } = useTheme();
   const { mdx } = data;
+  const { title } = pageContext;
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -28,7 +36,11 @@ const NotePage: FC<PageProps<DataType>> = ({ data }) => {
     <MainLayout>
       <br />
       <Container>
-        <SEO theme={theme} title="Notes" description="Digital Garden" />
+        <SEO
+          theme={theme}
+          title={title || "Note"}
+          description="Digital Garden"
+        />
         <article>
           {pathname === `${PAGES_ROUTES.notes.index}/home` ? (
             <GoBackTo type="link" theme={theme} to={PAGES_ROUTES.home.index}>
