@@ -58,7 +58,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-ts-config",
-    "gatsby-usrmx-theme",
     "gatsby-plugin-robots-txt",
+    "@usrmx/gatsby-usrmx-theme",
   ],
 };
