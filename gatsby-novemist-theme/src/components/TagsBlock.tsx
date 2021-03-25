@@ -46,11 +46,11 @@ export const TagsBlock = ({ theme }: TagsBlockProps) => {
         maxCount={MAX_TAGS_COUNT.block}
       />
       {tags.length > 0 && (
-        <p>
+        <div>
           <Link className="underline theme-link" to={PAGES_ROUTES.tags.index}>
             ...more
           </Link>
-        </p>
+        </div>
       )}
     </InfoCard>
   );
@@ -60,7 +60,7 @@ const query = graphql`
   query TagsBlock {
     allMdx(
       filter: {
-        fileAbsolutePath: { regex: "/content/" }
+        fileAbsolutePath: { regex: "/content/(blog|posts)/" }
         frontmatter: { hidden: { ne: true } }
       }
       sort: { fields: frontmatter___date, order: DESC }

@@ -37,20 +37,19 @@ export const Subscribing = ({
           <Icon src={icons.emojiEnvelope} widthSize="20px" />
         </h4>
         <div>
-          {isInitialStatus ? (
-            <form onSubmit={handleSubmit} action={FORM_URL} method="post">
-              <input
-                aria-label="Your email"
-                type="email"
-                name="email_address"
-                placeholder="Email address"
-                value={email}
-                onChange={handleChangeEmail}
-                required
-              />
-              <button type="submit">Subscribe</button>
-            </form>
-          ) : (
+          <form onSubmit={handleSubmit} action={FORM_URL} method="post">
+            <input
+              aria-label="Your email"
+              type="email"
+              name="email_address"
+              placeholder="Email address"
+              value={email}
+              onChange={handleChangeEmail}
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+          {!isInitialStatus && (
             <div>
               {isSuccessStatus && (
                 <div className={styles.resultSuccess}>

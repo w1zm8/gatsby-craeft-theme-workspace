@@ -50,19 +50,18 @@ export const SubscribingBlock: FC<SubscribingBlockProps> = ({
         </strong>
         .
       </p>
-      {isInitialStatus ? (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <input
-            className={styles.emailField}
-            type="email"
-            name="email_address"
-            placeholder="Email address"
-            onChange={handleChangeEmail}
-            value={email}
-          />
-          <button className={styles.subscribeBtn}>Subscribe</button>
-        </form>
-      ) : (
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <input
+          className={styles.emailField}
+          type="email"
+          name="email_address"
+          placeholder="Email address"
+          onChange={handleChangeEmail}
+          value={email}
+        />
+        <button className={styles.subscribeBtn}>Subscribe</button>
+      </form>
+      {!isInitialStatus && (
         <div className={styles.result}>
           {isSuccessStatus && (
             <div className={styles.resultSuccess}>
