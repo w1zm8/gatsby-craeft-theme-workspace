@@ -2,8 +2,8 @@
   "name": "gatsby-novemist-theme-workspace",
   "version": "0.0.1",
   "description": "Gatsby.js theme",
-  "repository": "https://github.com/novemist/gatsby-novemist-theme-workspace",
-  "author": "novemist",
+  "repository": "https://github.com/mxkvl/gatsby-novemist-theme-workspace",
+  "author": "mxkvl",
   "license": "MIT",
   "private": true,
   "workspaces": [

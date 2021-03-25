@@ -1,8 +1,8 @@
 {
-  "name": "@novemist/gatsby-novemist-theme",
+  "name": "@mxkvl/gatsby-novemist-theme",
   "version": "0.0.8",
   "main": "index.js",
-  "author": "novemist",
+  "author": "mxkvl",
   "license": "MIT",
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.3",

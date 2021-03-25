@@ -1,3 +1,3 @@
 [submodule "example/content"]
 	path = example/content
-	url = git@github.com:novemist/gatsby-novemist-theme-example-content.git
+	url = git@github.com:mxkvl/gatsby-novemist-theme-example-content.git
