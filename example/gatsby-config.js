@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    logoTitle: "gatsby-novemist-theme",
-    title: "gatsby-novemist-theme 🦉",
-    titleTemplate: "%s | gatsby-novemist-theme 🦉",
+    logoTitle: "gatsby-midnight-theme",
+    title: "gatsby-midnight-theme 🦉",
+    titleTemplate: "%s | gatsby-midnight-theme 🦉",
     description:
       "Elit dolore enim exercitation aliquip commodo ex sit do aliquip incididunt adipisicing velit amet.",
     keywords: ["programming", "software development", "grokking"],
@@ -50,8 +50,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-novemist-theme`,
-        short_name: `gatsby-novemist-theme`,
+        name: `gatsby-midnight-theme`,
+        short_name: `gatsby-midnight-theme`,
         start_url: `/`,
         icon: "./static/images/favicon.png",
         display: `standalone`,
@@ -59,6 +59,6 @@ module.exports = {
     },
     "gatsby-plugin-ts-config",
     "gatsby-plugin-robots-txt",
-    "@mxkvl/gatsby-novemist-theme",
+    "gatsby-midnight-theme",
   ],
 };

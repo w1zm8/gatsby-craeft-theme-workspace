@@ -1,14 +1,14 @@
 {
-  "name": "gatsby-novemist-theme-workspace",
+  "name": "gatsby-midnight-theme-workspace",
   "version": "0.0.1",
   "description": "Gatsby.js theme",
-  "repository": "https://github.com/mxkvl/gatsby-novemist-theme-workspace",
-  "author": "mxkvl",
+  "repository": "https://github.com/kowalevski/gatsby-midnight-theme-workspace",
+  "author": "Max Kowalevski <me@kowalevski.com>",
   "license": "MIT",
   "private": true,
   "workspaces": [
     "example",
-    "gatsby-novemist-theme"
+    "gatsby-midnight-theme"
   ],
   "scripts": {
     "start": "yarn workspace example develop",

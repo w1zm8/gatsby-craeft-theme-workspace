@@ -1,8 +1,8 @@
 {
-  "name": "@mxkvl/gatsby-novemist-theme",
-  "version": "0.0.30",
+  "name": "gatsby-midnight-theme",
+  "version": "0.1.00",
   "main": "index.js",
-  "author": "mxkvl",
+  "author": "Max Kowalevski <me@kowalevski.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.3",

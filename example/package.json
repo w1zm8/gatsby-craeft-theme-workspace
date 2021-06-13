@@ -1,12 +1,12 @@
 {
   "name": "example",
   "version": "0.0.1",
-  "description": "An example of the website that used gatsby-novemist-theme",
+  "description": "An example of the website that used gatsby-midnight-theme",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@mxkvl/gatsby-novemist-theme": "*",
+    "gatsby-midnight-theme": "*",
     "gatsby": "^2.30.1",
     "gatsby-plugin-manifest": "^2.10.0",
     "gatsby-plugin-robots-txt": "^1.5.5",

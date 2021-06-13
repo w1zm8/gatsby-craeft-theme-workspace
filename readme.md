@@ -1,4 +1,4 @@
-# gatsby-novemist-theme-workspace
+# gatsby-midnight-theme-workspace
 
 ### Configuration
 
