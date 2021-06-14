@@ -1,0 +1,59 @@
+.subscribe-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subscribe-page__form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribe-page__input {
+  background: #37383a;
+  border: 1px solid #1c1d1e;
+  outline: none;
+  border-radius: 4px;
+  padding: 13px 17px;
+  width: 100%;
+  margin-bottom: 18px;
+  color: #e2e2e2;
+  font-size: 1.5rem;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: #e2e2e2;
+}
+
+.subscribe-page__button {
+  background: #387cc8;
+  color: #fff;
+  border: 1px solid #1c1d1e;
+  outline: none;
+  border-radius: 4px;
+  width: 100%;
+  padding: 8px 3px;
+  font-weight: bold;
+  font-family: "Roboto Mono";
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.subscribe-page__title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: "Roboto Mono";
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-page__home {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
